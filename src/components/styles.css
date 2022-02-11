@@ -1,0 +1,119 @@
+.input {
+  display: flex;
+
+  width: 80vw;
+  position: relative;
+  align-items: center;
+}
+
+.input_box {
+  width: 60vw;
+  border-radius: 2px;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.input_box:focus {
+  outline: none;
+}
+
+.input_submit {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 1rem;
+  border-radius: 50px;
+  right: 0px;
+  border: none;
+  font-size: 0.7rem;
+  background-color: black;
+  color: white;
+  transition: 0.2s all;
+}
+
+.input_submit:hover {
+  background-color: #333334;
+}
+
+.input_submit:active {
+  transform: scale(0.8);
+}
+
+.container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.todos {
+  flex-direction: column;
+}
+
+.dragactive {
+  background-color: rgb(0, 221, 236);
+}
+
+.dragcomplete {
+  background-color: rgb(255, 38, 0);
+}
+
+.remove {
+  background-color: rgb(235, 103, 80);
+}
+
+.todos__heading {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.todos__single {
+  justify-content: space-between;
+  display: flex;
+  border-radius: 5px;
+  border: black solid 1px;
+  padding: 1rem;
+  margin-top: 1rem;
+  transition: 0.2s;
+}
+
+.todos__single:hover {
+  transform: scale(1.03);
+}
+
+.todos__single--text {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+
+.todos__single--text:focus {
+  outline: none;
+}
+
+.icon {
+  margin-left: 1rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .todos {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 80vw;
+  }
+  .container {
+    width: 80vw;
+    flex-direction: column;
+  }
+  .todos {
+    width: 80vw;
+    margin-bottom: 10px;
+  }
+}
