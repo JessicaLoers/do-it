@@ -1,17 +1,16 @@
 import React from 'react'
-import SingleTodo from './SingleTodo'
 import { Todo } from '../models/model'
-import './styles.css'
+import SingleTodo from './SingleTodo'
 import { Droppable } from 'react-beautiful-dnd'
 
-interface Props {
-  todos: Todo[]
+interface props {
+  todos: Array<Todo>
   setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>
-  completedTodos: Todo[]
-  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>
+  completedTodos: Array<Todo>
 }
 
-const TodoList: React.FC<Props> = ({
+const TodoList: React.FC<props> = ({
   todos,
   setTodos,
   completedTodos,
@@ -26,13 +25,15 @@ const TodoList: React.FC<Props> = ({
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            <span className='todos__heading'> Still not done </span>
-            {todos.map((todo, index) => (
+            <span className='todos__heading'>
+              Still not done <span>😒</span>
+            </span>
+            {todos?.map((todo, index) => (
               <SingleTodo
                 index={index}
+                todos={todos}
                 todo={todo}
                 key={todo.id}
-                todos={todos}
                 setTodos={setTodos}
               />
             ))}
@@ -40,23 +41,24 @@ const TodoList: React.FC<Props> = ({
           </div>
         )}
       </Droppable>
-
       <Droppable droppableId='TodosRemove'>
         {(provided, snapshot) => (
           <div
-            className={`todos remove ${
-              snapshot.isDraggingOver ? 'dragcomplete' : ''
-            }`}
             ref={provided.innerRef}
             {...provided.droppableProps}
+            className={`todos  ${
+              snapshot.isDraggingOver ? 'dragcomplete' : 'remove'
+            }`}
           >
-            <span className='todos__heading'> Yeah, well done </span>
-            {completedTodos.map((todo, index) => (
+            <span className='todos__heading'>
+              Well done <span>🙂</span>
+            </span>
+            {completedTodos?.map((todo, index) => (
               <SingleTodo
                 index={index}
+                todos={completedTodos}
                 todo={todo}
                 key={todo.id}
-                todos={completedTodos}
                 setTodos={setCompletedTodos}
               />
             ))}
