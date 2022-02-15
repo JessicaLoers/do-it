@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../App.css'
+import '../index.css'
 import InputField from '../components/InputField'
 import TodoList from '../components/TodoList'
 import { Todo } from '../models/model'
@@ -51,7 +51,6 @@ const DoitPage: React.FC = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div>
-        <h1>Postponed is not abandoned.</h1>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <TodoList
           todos={todos}

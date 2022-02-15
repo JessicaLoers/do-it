@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRef } from 'react'
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
-import { MdDone } from 'react-icons/md'
+import { RiDeleteBack2Fill, RiEdit2Fill, RiCheckboxFill } from 'react-icons/ri'
 import { Todo } from '../models/model'
 import { Draggable } from 'react-beautiful-dnd'
 
@@ -70,13 +69,13 @@ const SingleTodo: React.FC<{
                 }
               }}
             >
-              <AiFillEdit />
+              <RiEdit2Fill />
             </span>
             <span className='icon' onClick={() => handleDelete(todo.id)}>
-              <AiFillDelete />
+              <RiDeleteBack2Fill />
             </span>
             <span className='icon' onClick={() => handleDone(todo.id)}>
-              <MdDone />
+              <RiCheckboxFill />
             </span>
           </div>
         </form>
